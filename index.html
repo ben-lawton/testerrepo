@@ -97,6 +97,36 @@
             margin-top: 10px;
             font-size: 1rem;
             color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-item:hover .caption {
+            content: "After";
+            color: #555;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .load-more {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .load-more button {
+            background-color: #0078D7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .load-more button:hover {
+            background-color: #005fa3;
         }
     </style>
     <script>
@@ -109,6 +139,27 @@
 
                     // Toggle visibility
                     dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+                });
+            });
+
+            const loadMoreButtons = document.querySelectorAll(".load-more button");
+
+            loadMoreButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const hiddenItems = button.parentElement.previousElementSibling.querySelectorAll(".hidden");
+                    hiddenItems.forEach(item => item.classList.remove("hidden"));
+                    button.style.display = "none"; // Hide the button after clicking
+                });
+            });
+
+            const galleryItems = document.querySelectorAll(".gallery-item");
+            galleryItems.forEach(item => {
+                const caption = item.querySelector(".caption");
+                item.addEventListener("mouseover", () => {
+                    caption.textContent = "After";
+                });
+                item.addEventListener("mouseout", () => {
+                    caption.textContent = "Before";
                 });
             });
         });
@@ -126,18 +177,31 @@
                 <div class="gallery-item">
                     <img src="images.png" alt="Before" class="before">
                     <img src="placeholder.png" alt="After" class="after">
-                    <div class="caption">Example 1</div>
+                    <div class="caption">Before</div>
                 </div>
                 <div class="gallery-item">
                     <img src="images.png" alt="Before" class="before">
                     <img src="placeholder.png" alt="After" class="after">
-                    <div class="caption">Example 2</div>
+                    <div class="caption">Before</div>
                 </div>
                 <div class="gallery-item">
                     <img src="images.png" alt="Before" class="before">
                     <img src="placeholder.png" alt="After" class="after">
-                    <div class="caption">Example 3</div>
+                    <div class="caption">Before</div>
                 </div>
+                <div class="gallery-item hidden">
+                    <img src="images.png" alt="Before" class="before">
+                    <img src="placeholder.png" alt="After" class="after">
+                    <div class="caption">Before</div>
+                </div>
+                <div class="gallery-item hidden">
+                    <img src="images.png" alt="Before" class="before">
+                    <img src="placeholder.png" alt="After" class="after">
+                    <div class="caption">Before</div>
+                </div>
+            </div>
+            <div class="load-more">
+                <button>Load More</button>
             </div>
         </div>
     </div>
@@ -151,18 +215,31 @@
                 <div class="gallery-item">
                     <img src="images.png" alt="Before" class="before">
                     <img src="placeholder.png" alt="After" class="after">
-                    <div class="caption">Example 4</div>
+                    <div class="caption">Before</div>
                 </div>
                 <div class="gallery-item">
                     <img src="images.png" alt="Before" class="before">
                     <img src="placeholder.png" alt="After" class="after">
-                    <div class="caption">Example 5</div>
+                    <div class="caption">Before</div>
                 </div>
                 <div class="gallery-item">
                     <img src="images.png" alt="Before" class="before">
                     <img src="placeholder.png" alt="After" class="after">
-                    <div class="caption">Example 6</div>
+                    <div class="caption">Before</div>
                 </div>
+                <div class="gallery-item hidden">
+                    <img src="images.png" alt="Before" class="before">
+                    <img src="placeholder.png" alt="After" class="after">
+                    <div class="caption">Before</div>
+                </div>
+                <div class="gallery-item hidden">
+                    <img src="images.png" alt="Before" class="before">
+                    <img src="placeholder.png" alt="After" class="after">
+                    <div class="caption">Before</div>
+                </div>
+            </div>
+            <div class="load-more">
+                <button>Load More</button>
             </div>
         </div>
     </div>
@@ -176,18 +253,31 @@
                 <div class="gallery-item">
                     <img src="images.png" alt="Before" class="before">
                     <img src="placeholder.png" alt="After" class="after">
-                    <div class="caption">Example 7</div>
+                    <div class="caption">Before</div>
                 </div>
                 <div class="gallery-item">
                     <img src="images.png" alt="Before" class="before">
                     <img src="placeholder.png" alt="After" class="after">
-                    <div class="caption">Example 8</div>
+                    <div class="caption">Before</div>
                 </div>
                 <div class="gallery-item">
                     <img src="images.png" alt="Before" class="before">
                     <img src="placeholder.png" alt="After" class="after">
-                    <div class="caption">Example 9</div>
+                    <div class="caption">Before</div>
                 </div>
+                <div class="gallery-item hidden">
+                    <img src="images.png" alt="Before" class="before">
+                    <img src="placeholder.png" alt="After" class="after">
+                    <div class="caption">Before</div>
+                </div>
+                <div class="gallery-item hidden">
+                    <img src="images.png" alt="Before" class="before">
+                    <img src="placeholder.png" alt="After" class="after">
+                    <div class="caption">Before</div>
+                </div>
+            </div>
+            <div class="load-more">
+                <button>Load More</button>
             </div>
         </div>
     </div>
